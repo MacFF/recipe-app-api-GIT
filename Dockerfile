@@ -18,7 +18,7 @@ RUN python -m venv /py && \
         build-base postgresql-dev musl-dev && \ 
     /py/bin/pip install -r /tmp/requirements.txt && \
     if [ $DEV = "true" ]; \
-       then /py/bin/pip install -r /tmp/requirements.dev.txt ; \
+      then /py/bin/pip install -r /tmp/requirements.dev.txt ; \
     fi && \
     rm -rf /tmp && \
     apk del .tmp-build-deps && \
@@ -27,6 +27,6 @@ RUN python -m venv /py && \
         --no-create-home \
         django-user
 
-ENV PATH = "/py/bin:$PATH"
+ENV PATH="/py/bin:$PATH"
 
 USER django-user
